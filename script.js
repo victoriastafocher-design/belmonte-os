@@ -81,6 +81,11 @@ function SendCommand(command)
 {
     console.log("Command sent:", command);
 
-    window.location.href =
-        "secondlife:///app/media/" + command;
+    window.postMessage(
+        {
+            type: "BELMONTE_COMMAND",
+            command: command
+        },
+        "*"
+    );
 }
