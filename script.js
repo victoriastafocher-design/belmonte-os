@@ -81,9 +81,8 @@ function SendCommand(command)
 {
     console.log("Command sent:", command);
 
-
     fetch(
-        "https://simhost-059d114e20ca42176.agni.secondlife.io:12043/cap/f85c2cb6-4403-7492-fb02-a0c7c7161781,
+        "COLE_SUA_URL_HTTPS_AQUI",
         {
             method: "POST",
             mode: "no-cors",
