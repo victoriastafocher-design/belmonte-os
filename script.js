@@ -58,23 +58,7 @@ function Home()
 
     `;
 }
-{
-    screen.innerHTML = `
-        <h1>BELMONTE TV</h1>
 
-        <br>
-
-        <button onclick="OpenYoutube()">📺 YouTube</button>
-
-        <button>🌐 Browser</button>
-
-        <button>🎵 Music</button>
-
-        <button>⭐ Favorites</button>
-
-        <button>⚙ Settings</button>
-    `;
-}
 
 function OpenYoutube()
 {
