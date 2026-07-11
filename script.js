@@ -80,4 +80,12 @@ function OpenYoutube()
 function SendCommand(command)
 {
     console.log("Command sent:", command);
+
+    window.postMessage(
+        {
+            type: "BELMONTE_COMMAND",
+            command: command
+        },
+        "*"
+    );
 }
