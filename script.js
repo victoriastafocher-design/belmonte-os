@@ -63,8 +63,16 @@ function Home()
 function OpenYoutube()
 {
     screen.innerHTML = `
-        <h1>Launching...</h1>
 
-        <p>YouTube</p>
+        <iframe
+            width="960"
+            height="540"
+            src="https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=1"
+            title="YouTube"
+            frameborder="0"
+            allow="autoplay; encrypted-media"
+            allowfullscreen>
+        </iframe>
+
     `;
 }
