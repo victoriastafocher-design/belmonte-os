@@ -81,11 +81,12 @@ function SendCommand(command)
 {
     console.log("Command sent:", command);
 
-    window.postMessage(
+
+    fetch(
+        http://simhost-059d114e20ca42176.agni.secondlife.io:12046/cap/d8d71b01-1946-1320-e157-177f01a3b54a,
         {
-            type: "BELMONTE_COMMAND",
-            command: command
-        },
-        "*"
+            method: "POST",
+            body: command
+        }
     );
 }
