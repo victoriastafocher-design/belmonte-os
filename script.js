@@ -83,7 +83,7 @@ function SendCommand(command)
 
 
     fetch(
-        "http://simhost-059d114e20ca42176.agni.secondlife.io:12046/cap/bb501f9f-577b-d06f-58c6-2a325af5f517",
+        "https://simhost-059d114e20ca42176.agni.secondlife.io:12043/cap/f85c2cb6-4403-7492-fb02-a0c7c7161781,
         {
             method: "POST",
             mode: "no-cors",
