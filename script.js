@@ -1,23 +1,42 @@
 const screen = document.getElementById("screen");
 
-screen.innerHTML = `
-    <h1>BELMONTE</h1>
-    <h2>OS</h2>
-    <p>Initializing...</p>
-`;
+Boot();
 
-setTimeout(() => {
-
+function Boot()
+{
     screen.innerHTML = `
-        <iframe
-            width="960"
-            height="540"
-            src="https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=1"
-            title="Belmonte Smart TV"
-            frameborder="0"
-            allow="autoplay; encrypted-media"
-            allowfullscreen>
-        </iframe>
+        <h1>BELMONTE</h1>
+        <h2>OS</h2>
+        <p>Initializing...</p>
     `;
 
-}, 3000);
+    setTimeout(Home, 3000);
+}
+
+function Home()
+{
+    screen.innerHTML = `
+        <h1>BELMONTE TV</h1>
+
+        <br>
+
+        <button onclick="OpenYoutube()">📺 YouTube</button>
+
+        <button>🌐 Browser</button>
+
+        <button>🎵 Music</button>
+
+        <button>⭐ Favorites</button>
+
+        <button>⚙ Settings</button>
+    `;
+}
+
+function OpenYoutube()
+{
+    screen.innerHTML = `
+        <h1>Launching...</h1>
+
+        <p>YouTube</p>
+    `;
+}
