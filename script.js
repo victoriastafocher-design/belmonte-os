@@ -89,7 +89,3 @@ function SendCommand(command)
         "*"
     );
 }
-function openYoutube()
-{
-    window.location.href = "secondlife:///app/media/open_youtube";
-}
