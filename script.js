@@ -24,10 +24,10 @@ function Home()
         <div class="app-container">
 
 
-            <div class="card" onclick="OpenYoutube()">
-                <div class="icon">📺</div>
-                <div class="name">YouTube</div>
-            </div>
+          <div class="card" onclick="SendCommand('OPEN_YOUTUBE')">
+    <div class="icon">📺</div>
+    <div class="name">YouTube</div>
+</div>
 
 
             <div class="card">
@@ -75,4 +75,9 @@ function OpenYoutube()
         </iframe>
 
     `;
+}
+
+function SendCommand(command)
+{
+    console.log("Command sent:", command);
 }
