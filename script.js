@@ -81,5 +81,13 @@ function SendCommand(command)
 {
     console.log("Command sent:", command);
 
-    alert("Command: " + command);
+
+    fetch(
+        "COLE_A_URL_DA_TV_AQUI",
+        {
+            method: "POST",
+            mode: "no-cors",
+            body: command
+        }
+    );
 }
