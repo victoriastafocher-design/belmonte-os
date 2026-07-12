@@ -77,9 +77,16 @@ function OpenYoutube()
     `;
 }
 
-function SendCommand(command)
+function OpenYoutube()
 {
-    console.log("Command sent:", command);
-
-    alert("Command: " + command);
+    screen.innerHTML = `
+        <iframe
+            src="https://www.youtube.com/"
+            style="
+                width:100%;
+                height:100%;
+                border:none;
+            ">
+        </iframe>
+    `;
 }
