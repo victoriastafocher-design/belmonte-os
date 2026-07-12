@@ -1,6 +1,20 @@
+//==================================================
+// Belmonte OS
+// script.js
+//==================================================
+
 const screen = document.getElementById("screen");
 
+//========================
+// Inicialização
+//========================
+
 Boot();
+
+
+//========================
+// Boot
+//========================
 
 function Boot()
 {
@@ -13,6 +27,11 @@ function Boot()
     setTimeout(Home, 3000);
 }
 
+
+//========================
+// Tela Inicial
+//========================
+
 function Home()
 {
     screen.innerHTML = `
@@ -20,39 +39,32 @@ function Home()
         <h1>BELMONTE</h1>
         <h2>OS</h2>
 
-
         <div class="app-container">
 
-
-          <div class="card" onclick="SendCommand('OPEN_YOUTUBE')">
-    <div class="icon">📺</div>
-    <div class="name">YouTube</div>
-</div>
-
+            <div class="card" onclick="SendCommand('OPEN_YOUTUBE')">
+                <div class="icon">📺</div>
+                <div class="name">YouTube</div>
+            </div>
 
             <div class="card">
                 <div class="icon">🌐</div>
                 <div class="name">Browser</div>
             </div>
 
-
             <div class="card">
                 <div class="icon">🎵</div>
                 <div class="name">Music</div>
             </div>
-
 
             <div class="card">
                 <div class="icon">⭐</div>
                 <div class="name">Favorites</div>
             </div>
 
-
             <div class="card">
                 <div class="icon">⚙</div>
                 <div class="name">Settings</div>
             </div>
-
 
         </div>
 
@@ -60,33 +72,32 @@ function Home()
 }
 
 
+//========================
+// Apps
+//========================
+
 function OpenYoutube()
 {
-    screen.innerHTML = `
-
-        <iframe
-            width="960"
-            height="540"
-            src="https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=1"
-            title="YouTube"
-            frameborder="0"
-            allow="autoplay; encrypted-media"
-            allowfullscreen>
-        </iframe>
-
-    `;
+    window.location.href = "https://www.youtube.com/";
 }
 
-function OpenYoutube()
+
+//========================
+// Comandos
+//========================
+
+function SendCommand(command)
 {
-    screen.innerHTML = `
-        <iframe
-            src="https://www.youtube.com/"
-            style="
-                width:100%;
-                height:100%;
-                border:none;
-            ">
-        </iframe>
-    `;
+    console.log("Command sent:", command);
+
+    switch(command)
+    {
+        case "OPEN_YOUTUBE":
+            OpenYoutube();
+            break;
+
+        default:
+            console.log("Unknown command:", command);
+            break;
+    }
 }
