@@ -203,7 +203,7 @@ function OpenApp(command)
         case "OPEN_NETFLIX":
 
             alert(
-                "Netflix será integrado na próxima versão."
+                "https://www.netflix.com"
             );
 
             break;
