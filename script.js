@@ -195,7 +195,7 @@ function OpenApp(command)
         case "OPEN_YOUTUBE":
 
             OpenURL(
-                "https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=1"
+                "https://www.youtube.com"
             );
 
             break;
