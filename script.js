@@ -1,103 +1,96 @@
-//==================================================
-// Belmonte OS
-// script.js
-//==================================================
-
-const screen = document.getElementById("screen");
-
-//========================
-// Inicialização
-//========================
-
-Boot();
-
-
-//========================
-// Boot
-//========================
-
-function Boot()
-{
-    screen.innerHTML = `
-        <h1>BELMONTE</h1>
-        <h2>OS</h2>
-        <p>Initializing...</p>
-    `;
-
-    setTimeout(Home, 3000);
-}
-
-
-//========================
-// Tela Inicial
-//========================
-
 function Home()
 {
     screen.innerHTML = `
 
-        <h1>BELMONTE</h1>
-        <h2>OS</h2>
+    <div class="topbar">
+
+        <div class="logo">
+            🏠 BELMONTE OS
+        </div>
+
+        <div class="status">
+
+            <span id="connection">📶 Connected</span>
+
+            <span id="clock">00:00</span>
+
+        </div>
+
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="content">
 
         <div class="app-container">
 
             <div class="card" onclick="SendCommand('OPEN_YOUTUBE')">
+
                 <div class="icon">📺</div>
+
                 <div class="name">YouTube</div>
+
             </div>
 
             <div class="card">
+
                 <div class="icon">🌐</div>
+
                 <div class="name">Browser</div>
+
             </div>
 
             <div class="card">
+
                 <div class="icon">🎵</div>
+
                 <div class="name">Music</div>
+
             </div>
 
             <div class="card">
+
                 <div class="icon">⭐</div>
+
                 <div class="name">Favorites</div>
+
             </div>
 
             <div class="card">
+
                 <div class="icon">⚙</div>
+
                 <div class="name">Settings</div>
+
             </div>
 
         </div>
 
+    </div>
+
     `;
+
+    UpdateClock();
 }
-
-
-//========================
-// Apps
-//========================
-
-function OpenYoutube()
+function UpdateClock()
 {
-    window.location.href = "https://www.youtube.com/";
-}
+    const clock = document.getElementById("clock");
 
+    if(!clock)
+        return;
 
-//========================
-// Comandos
-//========================
-
-function SendCommand(command)
-{
-    console.log("Command sent:", command);
-
-    switch(command)
+    function Refresh()
     {
-        case "OPEN_YOUTUBE":
-            OpenYoutube();
-            break;
+        const now = new Date();
 
-        default:
-            console.log("Unknown command:", command);
-            break;
+        clock.textContent =
+            now.toLocaleTimeString([], {
+                hour: "2-digit",
+                minute: "2-digit"
+            });
     }
+
+    Refresh();
+
+    setInterval(Refresh, 1000);
 }
