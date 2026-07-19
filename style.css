@@ -1,197 +1,288 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Orbitron:wght@500;700&display=swap');
 
+/* ==========================================
+   BELMONTE OS v1
+========================================== */
 
-/*========================
-    Base
-========================*/
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-html, body {
+html,
+body{
 
-    margin: 0;
+    width:100%;
+    height:100%;
 
-    width: 100%;
+    overflow:hidden;
 
-    height: 100%;
+    background:#050505;
 
-    overflow: hidden;
+    color:#ffffff;
+
+    font-family:'Inter',sans-serif;
 
 }
 
+body{
 
-body {
+    display:flex;
 
-    background: #050505;
+    justify-content:center;
 
-    color: white;
-
-    font-family: 'Inter', sans-serif;
-
-}
-
-
-
-/*========================
-    Tela 16:9
-========================*/
-
-#screen {
-
-    width: 100vw;
-    height: 100vh;
-
-    display: flex;
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    align-items: center;
-
-    text-align: center;
+    align-items:center;
 
 }
 
+/* ==========================================
+   TELA
+========================================== */
 
+#screen{
 
-/*========================
-    Logo
-========================*/
+    width:100vw;
+    height:100vh;
 
-h1 {
+    display:flex;
 
-    font-family: 'Orbitron', sans-serif;
+    flex-direction:column;
 
-
-    font-size: 55px;
-
-
-    letter-spacing: 8px;
-
-
-    margin-bottom: 5px;
+    background:#050505;
 
 }
 
+/* ==========================================
+   TOPO
+========================================== */
 
+.topbar{
 
-h2 {
+    height:70px;
 
-    font-family: 'Orbitron', sans-serif;
+    padding:0 30px;
 
+    display:flex;
 
-    font-size: 28px;
+    justify-content:space-between;
 
+    align-items:center;
 
-    letter-spacing: 15px;
+    background:#101010;
 
-
-    color: #4aa3ff;
-
-
-    margin-top: 0;
-
-
-    margin-bottom: 50px;
-
-}
-
-
-
-/*========================
-    Aplicativos
-========================*/
-
-.app-container {
-
-    display: flex;
-
-
-    gap: 25px;
+    border-bottom:1px solid #202020;
 
 }
 
+.logo{
 
+    font-family:'Orbitron',sans-serif;
 
-/*========================
-    Cards
-========================*/
+    font-size:28px;
 
-.card {
+    letter-spacing:4px;
 
-    width: 150px;
-
-
-    height: 120px;
-
-
-    background: #111;
-
-
-    border: 1px solid #333;
-
-
-    border-radius: 18px;
-
-
-
-    display: flex;
-
-
-    flex-direction: column;
-
-
-    justify-content: center;
-
-
-    align-items: center;
-
-
-
-    cursor: pointer;
-
-
-
-    transition: 0.25s;
+    color:#4aa3ff;
 
 }
 
+.status{
 
+    display:flex;
 
-.card:hover {
+    gap:25px;
 
-    transform: scale(1.08);
+    font-size:16px;
 
-
-    background: #1b1b1b;
-
-
-    border-color: #4aa3ff;
+    color:#8fc7ff;
 
 }
 
+/* ==========================================
+   ÁREA CENTRAL
+========================================== */
 
+.content{
 
-/*========================
-    Ícones
-========================*/
+    flex:1;
 
-.icon {
+    display:flex;
 
-    font-size: 40px;
+    justify-content:center;
 
-
-    margin-bottom: 10px;
+    align-items:center;
 
 }
 
+/* ==========================================
+   GRID
+========================================== */
 
+.app-grid{
 
-/*========================
-    Nome
-========================*/
+    display:grid;
 
-.name {
+    grid-template-columns:repeat(3,180px);
 
-    font-size: 16px;
+    gap:35px;
+
+}
+
+/* ==========================================
+   APP
+========================================== */
+
+.app{
+
+    width:180px;
+
+    height:150px;
+
+    background:#111111;
+
+    border:1px solid #2c2c2c;
+
+    border-radius:18px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.app:hover{
+
+    transform:scale(1.08);
+
+    background:#1a1a1a;
+
+    border-color:#4aa3ff;
+
+    box-shadow:0 0 18px rgba(74,163,255,.35);
+
+}
+
+.icon{
+
+    font-size:52px;
+
+    margin-bottom:12px;
+
+}
+
+.label{
+
+    font-size:17px;
+
+    font-weight:600;
+
+}
+
+/* ==========================================
+   BOOT
+========================================== */
+
+.boot{
+
+    width:100%;
+
+    height:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.boot h1{
+
+    font-family:'Orbitron',sans-serif;
+
+    font-size:72px;
+
+    letter-spacing:10px;
+
+}
+
+.boot h2{
+
+    color:#4aa3ff;
+
+    letter-spacing:12px;
+
+    margin-top:10px;
+
+}
+
+.boot p{
+
+    margin-top:40px;
+
+    color:#888888;
+
+}
+
+/* ==========================================
+   LOADING
+========================================== */
+
+.loading{
+
+    margin-top:20px;
+
+    width:250px;
+
+    height:5px;
+
+    background:#202020;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+.loading::after{
+
+    content:"";
+
+    display:block;
+
+    width:100%;
+
+    height:100%;
+
+    background:#4aa3ff;
+
+    animation:load 2s linear infinite;
+
+}
+
+@keyframes load{
+
+    from{
+
+        transform:translateX(-100%);
+
+    }
+
+    to{
+
+        transform:translateX(100%);
+
+    }
 
 }
