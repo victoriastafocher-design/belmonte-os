@@ -1,96 +1,238 @@
-function Home()
-{
-    screen.innerHTML = `
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Orbitron:wght@500;700&display=swap');
 
-    <div class="topbar">
+/* ==========================================
+   BELMONTE OS 2.0
+========================================== */
 
-        <div class="logo">
-            🏠 BELMONTE OS
-        </div>
-
-        <div class="status">
-
-            <span id="connection">📶 Connected</span>
-
-            <span id="clock">00:00</span>
-
-        </div>
-
-    </div>
-
-    <div class="divider"></div>
-
-    <div class="content">
-
-        <div class="app-container">
-
-            <div class="card" onclick="SendCommand('OPEN_YOUTUBE')">
-
-                <div class="icon">📺</div>
-
-                <div class="name">YouTube</div>
-
-            </div>
-
-            <div class="card">
-
-                <div class="icon">🌐</div>
-
-                <div class="name">Browser</div>
-
-            </div>
-
-            <div class="card">
-
-                <div class="icon">🎵</div>
-
-                <div class="name">Music</div>
-
-            </div>
-
-            <div class="card">
-
-                <div class="icon">⭐</div>
-
-                <div class="name">Favorites</div>
-
-            </div>
-
-            <div class="card">
-
-                <div class="icon">⚙</div>
-
-                <div class="name">Settings</div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    `;
-
-    UpdateClock();
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
-function UpdateClock()
-{
-    const clock = document.getElementById("clock");
 
-    if(!clock)
-        return;
+html,
+body{
 
-    function Refresh()
-    {
-        const now = new Date();
+    width:100%;
+    height:100%;
 
-        clock.textContent =
-            now.toLocaleTimeString([], {
-                hour: "2-digit",
-                minute: "2-digit"
-            });
-    }
+    overflow:hidden;
 
-    Refresh();
+    background:#050505;
 
-    setInterval(Refresh, 1000);
+    color:white;
+
+    font-family:'Inter',sans-serif;
+
+}
+
+
+/* ==========================================
+   Tela Principal
+========================================== */
+
+#screen{
+
+    width:100vw;
+    height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+
+/* ==========================================
+   Barra Superior
+========================================== */
+
+.topbar{
+
+    height:70px;
+
+    padding:0 35px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:#111;
+
+    border-bottom:1px solid #222;
+
+}
+
+.logo{
+
+    font-family:'Orbitron',sans-serif;
+
+    font-size:28px;
+
+    letter-spacing:4px;
+
+    color:#4aa3ff;
+
+}
+
+.status{
+
+    display:flex;
+
+    gap:30px;
+
+    font-size:18px;
+
+    color:#8fc7ff;
+
+}
+
+
+/* ==========================================
+   Conteúdo
+========================================== */
+
+.content{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+/* ==========================================
+   Apps
+========================================== */
+
+.app-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,170px);
+
+    gap:35px;
+
+}
+
+
+/* ==========================================
+   Cards
+========================================== */
+
+.card{
+
+    width:170px;
+    height:145px;
+
+    background:#101010;
+
+    border:1px solid #2a2a2a;
+
+    border-radius:20px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.card:hover{
+
+    transform:scale(1.08);
+
+    border-color:#4aa3ff;
+
+    background:#181818;
+
+    box-shadow:0 0 18px rgba(74,163,255,.35);
+
+}
+
+
+/* ==========================================
+   Ícones
+========================================== */
+
+.icon{
+
+    font-size:48px;
+
+    margin-bottom:14px;
+
+}
+
+
+/* ==========================================
+   Texto
+========================================== */
+
+.name{
+
+    font-size:17px;
+
+    font-weight:600;
+
+}
+
+
+/* ==========================================
+   Boot
+========================================== */
+
+.boot{
+
+    width:100%;
+    height:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.boot h1{
+
+    font-family:'Orbitron',sans-serif;
+
+    font-size:70px;
+
+    letter-spacing:10px;
+
+}
+
+.boot h2{
+
+    margin-top:10px;
+
+    color:#4aa3ff;
+
+    letter-spacing:12px;
+
+}
+
+.boot p{
+
+    margin-top:45px;
+
+    color:#999;
+
 }
