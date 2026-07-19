@@ -226,50 +226,15 @@ function OpenApp(command)
 
         case "OPEN_FAVORITES":
 
-    screen.innerHTML = `
-
-    <div class="boot">
-
-        <h1>⭐ Favorites</h1>
-
-        <p>
-
-            Nenhum favorito salvo.
-
-        </p>
-
-    </div>
-
-    `;
+    ShowFavorites();
 
     break;
 
-        case "OPEN_SETTINGS":
+case "OPEN_SETTINGS":
 
-    screen.innerHTML = `
-
-    <div class="boot">
-
-        <h1>⚙ Settings</h1>
-
-        <p>
-
-            Belmonte OS v1.0
-
-        </p>
-
-        <p>
-
-            Desenvolvido por Victoria Belmonte
-
-        </p>
-
-    </div>
-
-    `;
+    ShowSettings();
 
     break;
-
     }
 
 }
@@ -287,6 +252,133 @@ function OpenURL(url)
         window.location.href = url;
 
     },300);
+}
+//==================================================
+// FAVORITES
+//==================================================
+
+function ShowFavorites()
+{
+    screen.innerHTML = `
+
+    <div class="topbar">
+
+        <div class="logo">
+
+            ⭐ FAVORITES
+
+        </div>
+
+        <div class="status">
+
+            <span class="app" onclick="Home()">
+
+                🏠 Home
+
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="content">
+
+        <div class="app-grid">
+
+            <div class="app" onclick="OpenURL('https://www.youtube.com')">
+
+                <div class="icon">📺</div>
+
+                <div class="label">YouTube</div>
+
+            </div>
+
+            <div class="app" onclick="OpenURL('https://www.google.com')">
+
+                <div class="icon">🌐</div>
+
+                <div class="label">Google</div>
+
+            </div>
+
+            <div class="app" onclick="OpenURL('https://chatgpt.com')">
+
+                <div class="icon">🤖</div>
+
+                <div class="label">ChatGPT</div>
+
+            </div>
+
+            <div class="app" onclick="OpenURL('https://secondlife.com')">
+
+                <div class="icon">🌎</div>
+
+                <div class="label">Second Life</div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    `;
+}
+
+//==================================================
+// SETTINGS
+//==================================================
+
+function ShowSettings()
+{
+    screen.innerHTML = `
+
+    <div class="topbar">
+
+        <div class="logo">
+
+            ⚙ SETTINGS
+
+        </div>
+
+        <div class="status">
+
+            <span class="app" onclick="Home()">
+
+                🏠 Home
+
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="content">
+
+        <div style="text-align:center;">
+
+            <h2>Belmonte OS</h2>
+
+            <br>
+
+            <p>Version 1.0</p>
+
+            <br>
+
+            <p>Designed by Victoria Belmonte</p>
+
+            <br>
+
+            <button onclick="location.reload()">
+
+                Reboot TV
+
+            </button>
+
+        </div>
+
+    </div>
+
+    `;
 }
 
 //==================================================
