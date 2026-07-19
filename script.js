@@ -86,6 +86,33 @@ const Favorites =
     }
 ];
 
+const Settings =
+[
+    {
+        icon:"🔄",
+        name:"Reboot",
+        action:"REBOOT"
+    },
+
+    {
+        icon:"🏠",
+        name:"Home",
+        action:"HOME"
+    },
+
+    {
+        icon:"💻",
+        name:"GitHub",
+        action:"GITHUB"
+    },
+
+    {
+        icon:"ℹ",
+        name:"About",
+        action:"ABOUT"
+    }
+];
+
 function Boot()
 {
     screen.innerHTML = `
@@ -362,8 +389,39 @@ function ShowFavorites()
 // SETTINGS
 //==================================================
 
+//==================================================
+// SETTINGS
+//==================================================
+
 function ShowSettings()
 {
+    let html = "";
+
+    for(const item of Settings)
+    {
+        html += `
+
+        <div
+            class="app"
+            onclick="RunSetting('${item.action}')">
+
+            <div class="icon">
+
+                ${item.icon}
+
+            </div>
+
+            <div class="label">
+
+                ${item.name}
+
+            </div>
+
+        </div>
+
+        `;
+    }
+
     screen.innerHTML = `
 
     <div class="topbar">
@@ -388,25 +446,9 @@ function ShowSettings()
 
     <div class="content">
 
-        <div style="text-align:center;">
+        <div class="app-grid">
 
-            <h2>Belmonte OS</h2>
-
-            <br>
-
-            <p>Version 1.0</p>
-
-            <br>
-
-            <p>Designed by Victoria Belmonte</p>
-
-            <br>
-
-            <button onclick="location.reload()">
-
-                Reboot TV
-
-            </button>
+            ${html}
 
         </div>
 
@@ -414,7 +456,6 @@ function ShowSettings()
 
     `;
 }
-
 //==================================================
 // Receiver (Preparado para o SL)
 //==================================================
@@ -431,3 +472,83 @@ window.addEventListener(
 
     }
 );
+
+//==================================================
+// SETTINGS ACTIONS
+//==================================================
+
+function RunSetting(action)
+{
+    switch(action)
+    {
+        case "REBOOT":
+
+            location.reload();
+
+            break;
+
+        case "HOME":
+
+            Home();
+
+            break;
+
+        case "GITHUB":
+
+            OpenURL(
+                "https://github.com"
+            );
+
+            break;
+
+        case "ABOUT":
+
+            screen.innerHTML = `
+
+            <div class="topbar">
+
+                <div class="logo">
+
+                    ℹ ABOUT
+
+                </div>
+
+                <div class="status">
+
+                    <span class="app" onclick="ShowSettings()">
+
+                        ⬅ Back
+
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="content">
+
+                <div style="text-align:center;">
+
+                    <h2>Belmonte OS</h2>
+
+                    <br>
+
+                    <p>Version 1.0</p>
+
+                    <br>
+
+                    <p>Designed by Victoria Belmonte</p>
+
+                    <br>
+
+                    <p>Powered by HTML, CSS, JavaScript & Second Life</p>
+
+                </div>
+
+            </div>
+
+            `;
+
+            break;
+    }
+}
