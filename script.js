@@ -1,238 +1,292 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Orbitron:wght@500;700&display=swap');
+//==================================================
+// BELMONTE OS v1
+// Script.js
+//==================================================
 
-/* ==========================================
-   BELMONTE OS 2.0
-========================================== */
+const screen = document.getElementById("screen");
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+const Apps =
+[
+    {
+        icon:"📺",
+        name:"YouTube",
+        command:"OPEN_YOUTUBE"
+    },
+
+    {
+        icon:"🎬",
+        name:"Netflix",
+        command:"OPEN_NETFLIX"
+    },
+
+    {
+        icon:"🌐",
+        name:"Browser",
+        command:"OPEN_BROWSER"
+    },
+
+    {
+        icon:"🎵",
+        name:"Music",
+        command:"OPEN_MUSIC"
+    },
+
+    {
+        icon:"⭐",
+        name:"Favorites",
+        command:"OPEN_FAVORITES"
+    },
+
+    {
+        icon:"⚙",
+        name:"Settings",
+        command:"OPEN_SETTINGS"
+    }
+];
+
+Boot();
+
+//==================================================
+
+function Boot()
+{
+    screen.innerHTML = `
+
+    <div class="boot">
+
+        <h1>BELMONTE</h1>
+
+        <h2>OS</h2>
+
+        <p>Initializing...</p>
+
+        <div class="loading"></div>
+
+    </div>
+
+    `;
+
+    setTimeout(Home,2500);
 }
 
-html,
-body{
+//==================================================
 
-    width:100%;
-    height:100%;
+function Home()
+{
 
-    overflow:hidden;
+    let html = "";
 
-    background:#050505;
+    for(const app of Apps)
+    {
 
-    color:white;
+        html += `
 
-    font-family:'Inter',sans-serif;
+        <div
+            class="app"
+            onclick="OpenApp('${app.command}')">
 
-}
+            <div class="icon">
 
+                ${app.icon}
 
-/* ==========================================
-   Tela Principal
-========================================== */
+            </div>
 
-#screen{
+            <div class="label">
 
-    width:100vw;
-    height:100vh;
+                ${app.name}
 
-    display:flex;
+            </div>
 
-    flex-direction:column;
+        </div>
 
-}
+        `;
 
+    }
 
-/* ==========================================
-   Barra Superior
-========================================== */
+    screen.innerHTML = `
 
-.topbar{
+    <div class="topbar">
 
-    height:70px;
+        <div class="logo">
 
-    padding:0 35px;
+            🏠 BELMONTE OS
 
-    display:flex;
+        </div>
 
-    justify-content:space-between;
+        <div class="status">
 
-    align-items:center;
+            <span>
 
-    background:#111;
+                📶 Connected
 
-    border-bottom:1px solid #222;
+            </span>
 
-}
+            <span id="clock">
 
-.logo{
+                00:00
 
-    font-family:'Orbitron',sans-serif;
+            </span>
 
-    font-size:28px;
+        </div>
 
-    letter-spacing:4px;
+    </div>
 
-    color:#4aa3ff;
+    <div class="content">
 
-}
+        <div class="app-grid">
 
-.status{
+            ${html}
 
-    display:flex;
+        </div>
 
-    gap:30px;
+    </div>
 
-    font-size:18px;
+    `;
 
-    color:#8fc7ff;
-
-}
-
-
-/* ==========================================
-   Conteúdo
-========================================== */
-
-.content{
-
-    flex:1;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-}
-
-
-/* ==========================================
-   Apps
-========================================== */
-
-.app-container{
-
-    display:grid;
-
-    grid-template-columns:repeat(3,170px);
-
-    gap:35px;
-
-}
-
-
-/* ==========================================
-   Cards
-========================================== */
-
-.card{
-
-    width:170px;
-    height:145px;
-
-    background:#101010;
-
-    border:1px solid #2a2a2a;
-
-    border-radius:20px;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    cursor:pointer;
-
-    transition:.25s;
+    UpdateClock();
 
 }
 
-.card:hover{
+//==================================================
 
-    transform:scale(1.08);
+function UpdateClock()
+{
 
-    border-color:#4aa3ff;
+    const clock =
+        document.getElementById("clock");
 
-    background:#181818;
+    if(!clock)
+        return;
 
-    box-shadow:0 0 18px rgba(74,163,255,.35);
+    function Tick()
+    {
+
+        const now = new Date();
+
+        clock.textContent =
+            now.toLocaleTimeString(
+                [],
+                {
+                    hour:"2-digit",
+                    minute:"2-digit"
+                });
+
+    }
+
+    Tick();
+
+    if(window.ClockTimer)
+        clearInterval(window.ClockTimer);
+
+    window.ClockTimer =
+        setInterval(Tick,1000);
+
+}
+//==================================================
+// Open App
+//==================================================
+
+function OpenApp(command)
+{
+    console.log("Opening:", command);
+
+    switch(command)
+    {
+        case "OPEN_YOUTUBE":
+
+            OpenURL(
+                "https://www.youtube.com/embed/jfKfPfyJRdk?autoplay=1"
+            );
+
+            break;
+
+        case "OPEN_NETFLIX":
+
+            alert(
+                "Netflix será integrado na próxima versão."
+            );
+
+            break;
+
+        case "OPEN_BROWSER":
+
+            OpenURL(
+                "https://www.google.com"
+            );
+
+            break;
+
+        case "OPEN_MUSIC":
+
+            OpenURL(
+                "https://music.youtube.com"
+            );
+
+            break;
+
+        case "OPEN_FAVORITES":
+
+            alert(
+                "Favorites em desenvolvimento."
+            );
+
+            break;
+
+        case "OPEN_SETTINGS":
+
+            alert(
+                "Settings em desenvolvimento."
+            );
+
+            break;
+
+    }
 
 }
 
+//==================================================
+// Open URL
+//==================================================
 
-/* ==========================================
-   Ícones
-========================================== */
+function OpenURL(url)
+{
+    screen.innerHTML = `
 
-.icon{
+    <div class="boot">
 
-    font-size:48px;
+        <h1>Launching...</h1>
 
-    margin-bottom:14px;
+        <p>
 
-}
+            Aguarde...
 
+        </p>
 
-/* ==========================================
-   Texto
-========================================== */
+    </div>
 
-.name{
+    `;
 
-    font-size:17px;
+    setTimeout(function()
+    {
+        window.location.href = url;
 
-    font-weight:600;
-
-}
-
-
-/* ==========================================
-   Boot
-========================================== */
-
-.boot{
-
-    width:100%;
-    height:100%;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
+    },800);
 
 }
 
-.boot h1{
+//==================================================
+// Receiver (Preparado para o SL)
+//==================================================
 
-    font-family:'Orbitron',sans-serif;
+window.addEventListener(
+    "message",
+    function(event)
+    {
 
-    font-size:70px;
+        console.log(
+            "Receiver:",
+            event.data
+        );
 
-    letter-spacing:10px;
-
-}
-
-.boot h2{
-
-    margin-top:10px;
-
-    color:#4aa3ff;
-
-    letter-spacing:12px;
-
-}
-
-.boot p{
-
-    margin-top:45px;
-
-    color:#999;
-
-}
+    }
+);
