@@ -47,6 +47,44 @@ const Apps =
 Boot();
 
 //==================================================
+const Favorites =
+[
+    {
+        icon:"📺",
+        name:"YouTube",
+        url:"https://www.youtube.com"
+    },
+
+    {
+        icon:"🎬",
+        name:"Netflix",
+        url:"https://www.netflix.com"
+    },
+
+    {
+        icon:"🌐",
+        name:"Google",
+        url:"https://www.google.com"
+    },
+
+    {
+        icon:"🤖",
+        name:"ChatGPT",
+        url:"https://chatgpt.com"
+    },
+
+    {
+        icon:"🌎",
+        name:"Second Life",
+        url:"https://secondlife.com"
+    },
+
+    {
+        icon:"💻",
+        name:"GitHub",
+        url:"https://github.com"
+    }
+];
 
 function Boot()
 {
