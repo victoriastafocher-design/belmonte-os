@@ -250,28 +250,13 @@ function OpenApp(command)
 
 function OpenURL(url)
 {
-    screen.innerHTML = `
-
-    <div class="boot">
-
-        <h1>Launching...</h1>
-
-        <p>
-
-            Aguarde...
-
-        </p>
-
-    </div>
-
-    `;
+    screen.style.background = "#000";
 
     setTimeout(function()
     {
         window.location.href = url;
 
-    },800);
-
+    },300);
 }
 
 //==================================================
