@@ -202,7 +202,7 @@ function OpenApp(command)
 
         case "OPEN_NETFLIX":
 
-            alert(
+            OpenURL(
                 "https://www.netflix.com"
             );
 
@@ -226,19 +226,49 @@ function OpenApp(command)
 
         case "OPEN_FAVORITES":
 
-            alert(
-                "Favorites em desenvolvimento."
-            );
+    screen.innerHTML = `
 
-            break;
+    <div class="boot">
+
+        <h1>⭐ Favorites</h1>
+
+        <p>
+
+            Nenhum favorito salvo.
+
+        </p>
+
+    </div>
+
+    `;
+
+    break;
 
         case "OPEN_SETTINGS":
 
-            alert(
-                "Settings em desenvolvimento."
-            );
+    screen.innerHTML = `
 
-            break;
+    <div class="boot">
+
+        <h1>⚙ Settings</h1>
+
+        <p>
+
+            Belmonte OS v1.0
+
+        </p>
+
+        <p>
+
+            Desenvolvido por Victoria Belmonte
+
+        </p>
+
+    </div>
+
+    `;
+
+    break;
 
     }
 
