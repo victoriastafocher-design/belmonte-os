@@ -1,72 +1,25 @@
-function Home()
-{
-    screen.innerHTML = `
+<!DOCTYPE html>
 
-        <div class="topbar">
+<html lang="en">
 
-            <div class="logo">
-                🏠 BELMONTE OS
-            </div>
+<head>
 
-            <div class="status">
+    <meta charset="UTF-8">
 
-                <span>📶 Connected</span>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-                <span id="clock">00:00</span>
+    <title>Belmonte OS</title>
 
-            </div>
+    <link rel="stylesheet" href="style.css">
 
-        </div>
+</head>
 
-        <h1>BELMONTE</h1>
+<body>
 
-        <h2>OS</h2>
+    <div id="screen"></div>
 
-        <div class="app-container">
+    <script src="script.js"></script>
 
-            <div class="card" onclick="SendCommand('OPEN_YOUTUBE')">
+</body>
 
-                <div class="icon">📺</div>
-
-                <div class="name">YouTube</div>
-
-            </div>
-
-            <div class="card">
-
-                <div class="icon">🌐</div>
-
-                <div class="name">Browser</div>
-
-            </div>
-
-            <div class="card">
-
-                <div class="icon">🎵</div>
-
-                <div class="name">Music</div>
-
-            </div>
-
-            <div class="card">
-
-                <div class="icon">⭐</div>
-
-                <div class="name">Favorites</div>
-
-            </div>
-
-            <div class="card">
-
-                <div class="icon">⚙</div>
-
-                <div class="name">Settings</div>
-
-            </div>
-
-        </div>
-
-    `;
-
-    UpdateClock();
-}
+</html>
