@@ -297,6 +297,33 @@ function OpenURL(url)
 
 function ShowFavorites()
 {
+    let html = "";
+
+    for(const favorite of Favorites)
+    {
+        html += `
+
+        <div
+            class="app"
+            onclick="OpenURL('${favorite.url}')">
+
+            <div class="icon">
+
+                ${favorite.icon}
+
+            </div>
+
+            <div class="label">
+
+                ${favorite.name}
+
+            </div>
+
+        </div>
+
+        `;
+    }
+
     screen.innerHTML = `
 
     <div class="topbar">
@@ -323,37 +350,7 @@ function ShowFavorites()
 
         <div class="app-grid">
 
-            <div class="app" onclick="OpenURL('https://www.youtube.com')">
-
-                <div class="icon">📺</div>
-
-                <div class="label">YouTube</div>
-
-            </div>
-
-            <div class="app" onclick="OpenURL('https://www.google.com')">
-
-                <div class="icon">🌐</div>
-
-                <div class="label">Google</div>
-
-            </div>
-
-            <div class="app" onclick="OpenURL('https://chatgpt.com')">
-
-                <div class="icon">🤖</div>
-
-                <div class="label">ChatGPT</div>
-
-            </div>
-
-            <div class="app" onclick="OpenURL('https://secondlife.com')">
-
-                <div class="icon">🌎</div>
-
-                <div class="label">Second Life</div>
-
-            </div>
+            ${html}
 
         </div>
 
@@ -361,7 +358,6 @@ function ShowFavorites()
 
     `;
 }
-
 //==================================================
 // SETTINGS
 //==================================================
